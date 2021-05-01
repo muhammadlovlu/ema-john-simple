@@ -9,7 +9,6 @@ const Shop = () => {
    const [cart, setCart] = useState([]);
 
 const handleAddProduct = (product)=> {
-    console.log('product added from event Handler', product);
     const newCart = [...cart, product];
     setCart(newCart);
 }
@@ -19,7 +18,7 @@ const handleAddProduct = (product)=> {
               <div className="product-container">
      
                     {
-                     products.map(product => <Product handlingProduct={handleAddProduct} product={product} key={product.key}></Product>)    
+                     products.map(product => <Product handlingProduct={handleAddProduct} showAddToCart={true} product={product} key={product.key}></Product>)    
                     }
       
               </div>
