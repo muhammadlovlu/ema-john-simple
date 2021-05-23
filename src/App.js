@@ -15,6 +15,7 @@ import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 
 export const userContext = createContext();
@@ -35,8 +36,9 @@ function App() {
   return (
     <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <h1>{loggedInUser.email}</h1>
-      <Header></Header>
+      
       <Router>
+      <Header></Header>
         <Switch>
           <Route path="/shop">
             <Shop></Shop>
@@ -44,15 +46,15 @@ function App() {
           <Route path="/review">
             <Review></Review>
           </Route>
-          <Route path="/inventory">
+          <PrivateRoute path="/inventory">
             <Inventory></Inventory>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
            <Login></Login>
           </Route>
-          <Route path="/Shipment">
+          <PrivateRoute path="/Shipment">
         <Shipment></Shipment>
-          </Route>
+          </PrivateRoute>
           <Route exact path="/">
             <Shop></Shop>
           </Route>
