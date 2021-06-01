@@ -113,7 +113,7 @@ const handleResponse = (res, redirect) => {
   return (
     <div className="App">
       {
-        user.isSignedIn ? <button onClick={signOut}>Sign Out</button> : <button onClick={googleSignIn}>Sign In</button>
+        user?.isSignedIn ? <button onClick={signOut}>Sign Out</button> : <button onClick={googleSignIn}>Sign In</button>
 
       }
       <br />
